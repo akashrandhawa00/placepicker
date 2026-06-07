@@ -5,58 +5,58 @@ import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 
 export default [
-  {
-    ignores: ["dist"],
-  },
+    {
+        ignores: ["dist"],
+    },
 
-  js.configs.recommended,
+    js.configs.recommended,
 
-  {
-    files: ["**/*.{js,jsx}"],
+    {
+        files: ["**/*.{js,jsx}"],
 
-    languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
-      globals: globals.browser,
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
+        languageOptions: {
+            ecmaVersion: "latest",
+            sourceType: "module",
+            globals: globals.browser,
+            parserOptions: {
+                ecmaFeatures: {
+                    jsx: true,
+                },
+            },
         },
-      },
-    },
 
-    plugins: {
-      react,
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
-    },
-
-    rules: {
-      ...react.configs.recommended.rules,
-      ...reactHooks.configs.recommended.rules,
-
-      "react/react-in-jsx-scope": "off",
-      "react/jsx-uses-react": "off",
-
-      "no-unused-vars": [
-        "warn",
-        {
-          argsIgnorePattern: "^_",
+        plugins: {
+            react,
+            "react-hooks": reactHooks,
+            "react-refresh": reactRefresh,
         },
-      ],
 
-      "react-refresh/only-export-components": [
-        "warn",
-        {
-          allowConstantExport: true,
+        rules: {
+            ...react.configs.recommended.rules,
+            ...reactHooks.configs.recommended.rules,
+
+            "react/react-in-jsx-scope": "off",
+            "react/jsx-uses-react": "off",
+
+            "no-unused-vars": [
+                "warn",
+                {
+                    argsIgnorePattern: "^_",
+                },
+            ],
+
+            "react-refresh/only-export-components": [
+                "warn",
+                {
+                    allowConstantExport: true,
+                },
+            ],
         },
-      ],
-    },
 
-    settings: {
-      react: {
-        version: "detect",
-      },
+        settings: {
+            react: {
+                version: "detect",
+            },
+        },
     },
-  },
 ];
